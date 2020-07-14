@@ -14,7 +14,8 @@ class ProductsController extends Controller
      */
     public function index()
     {
-        //
+        $products = Products::all()->toArray();
+        return array_reverse($products);
     }
 
     /**
@@ -22,9 +23,14 @@ class ProductsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $products = new Products([
+            'title' => $request->input('title'),
+        ]);
+        $products->save();
+
+        return response()->json('The products successfully added');
     }
 
     /**
@@ -55,9 +61,10 @@ class ProductsController extends Controller
      * @param  \App\Products  $products
      * @return \Illuminate\Http\Response
      */
-    public function edit(Products $products)
+    public function edit($id)
     {
-        //
+        $products = Products::find($id);
+        return response()->json($products);
     }
 
     /**
@@ -67,9 +74,12 @@ class ProductsController extends Controller
      * @param  \App\Products  $products
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Products $products)
+    public function update(Request $request, $id)
     {
-        //
+        $products = Products::find($id);
+        $products->update($request->all());
+
+        return response()->json('The products successfully updated');
     }
 
     /**
@@ -78,8 +88,11 @@ class ProductsController extends Controller
      * @param  \App\Products  $products
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Products $products)
+    public function destroy($id)
     {
-        //
+        $products = Products::find($id);
+        $products->delete();
+
+        return response()->json('The products successfully deleted');
     }
 }
