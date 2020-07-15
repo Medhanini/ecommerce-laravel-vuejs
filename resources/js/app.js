@@ -31,13 +31,10 @@ require('./bootstrap');
 //     el: '#app',
 // });
 
-
+window.Vue = require('vue');
 
 import vuetify from './vuetify'
-
-
-require('./bootstrap');
-window.Vue = require('vue');
+// require('./bootstrap');
 
 import App from './App.vue';
 import VueRouter from 'vue-router';
@@ -56,6 +53,7 @@ const router = new VueRouter({
 const app = new Vue({
     el: '#app',
     vuetify,
+    iconfont: 'mdi',
     router: router,
     render: h => h(App),
 });

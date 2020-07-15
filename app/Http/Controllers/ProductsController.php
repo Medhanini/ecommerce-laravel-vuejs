@@ -23,10 +23,12 @@ class ProductsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request)
+    public function add(Request $request)
     {
         $products = new Products([
             'title' => $request->input('title'),
+            'price' => $request->input('price'),
+            'quantity' => $request->input('quantity'),
         ]);
         $products->save();
 
