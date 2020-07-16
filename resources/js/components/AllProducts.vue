@@ -2,7 +2,7 @@
 <div>
   <v-data-table
     :headers="headers"
-    :items="products"
+    :items="products.data"
     sort-by="title"
     class="elevation-1"
   >

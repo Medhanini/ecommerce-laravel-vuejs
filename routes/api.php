@@ -25,3 +25,6 @@ Route::group(['prefix' => 'products'], function () {
     Route::post('update/{id}', 'ProductsController@update');
     Route::delete('delete/{id}', 'ProductsController@destroy');
 });
+Route::get('variationstypes', 'ProductVariationTypeController@index');
+Route::group(['prefix' => 'variationstypes'], function () {
+});

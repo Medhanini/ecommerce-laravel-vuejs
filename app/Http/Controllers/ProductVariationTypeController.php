@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\product_has_option;
+use App\ProductVariationType;
 use Illuminate\Http\Request;
 
-class ProductHasOptionController extends Controller
+class ProductVariationTypeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,8 @@ class ProductHasOptionController extends Controller
      */
     public function index()
     {
-        //
+        $variations_types = ProductVariationType::all()->toArray();
+        return array_reverse($variations_types);
     }
 
     /**
@@ -41,10 +42,10 @@ class ProductHasOptionController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\product_has_option  $product_has_option
+     * @param  \App\ProductVariationType  $productVariationType
      * @return \Illuminate\Http\Response
      */
-    public function show(product_has_option $product_has_option)
+    public function show(ProductVariationType $productVariationType)
     {
         //
     }
@@ -52,10 +53,10 @@ class ProductHasOptionController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\product_has_option  $product_has_option
+     * @param  \App\ProductVariationType  $productVariationType
      * @return \Illuminate\Http\Response
      */
-    public function edit(product_has_option $product_has_option)
+    public function edit(ProductVariationType $productVariationType)
     {
         //
     }
@@ -64,10 +65,10 @@ class ProductHasOptionController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\product_has_option  $product_has_option
+     * @param  \App\ProductVariationType  $productVariationType
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, product_has_option $product_has_option)
+    public function update(Request $request, ProductVariationType $productVariationType)
     {
         //
     }
@@ -75,10 +76,10 @@ class ProductHasOptionController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\product_has_option  $product_has_option
+     * @param  \App\ProductVariationType  $productVariationType
      * @return \Illuminate\Http\Response
      */
-    public function destroy(product_has_option $product_has_option)
+    public function destroy(ProductVariationType $productVariationType)
     {
         //
     }

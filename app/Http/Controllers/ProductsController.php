@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Products;
+use App\ProductVariation;
+use App\ProductVariationType;
 use Illuminate\Http\Request;
-
+use App\Http\Resources\Products as ProductsResource;
 class ProductsController extends Controller
 {
     /**
@@ -14,8 +16,9 @@ class ProductsController extends Controller
      */
     public function index()
     {
-        $products = Products::all()->toArray();
-        return array_reverse($products);
+        // $products = Products::all()->toArray();
+        $products = Products::latestFirst()->paginate(5);
+        return ProductsResource::collection($products);
     }
 
     /**
@@ -30,9 +33,19 @@ class ProductsController extends Controller
             'price' => $request->input('price'),
             'quantity' => $request->input('quantity'),
         ]);
-        $products->save();
 
-        return response()->json('The products successfully added');
+        $var = $request->name;
+        $vartypes_id = $request->product_variation_types_id;
+        $productvariation = [];    
+        $products->save();
+        // insert blog tags
+        foreach ($var as $v) {
+            array_push($productvariation, ['products_id'=>'1','product_variation_types_id' => $vartypes_id,'name' => $v]);
+        }    
+        ProductVariation::insert($productvariation);
+        // topic post relatioship
+        //$products->variations()->save($variation);
+
     }
 
     /**

@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Option;
+use App\ProductVariation;
 use Illuminate\Http\Request;
 
-class OptionController extends Controller
+class ProductVariationController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,8 @@ class OptionController extends Controller
      */
     public function index()
     {
-        //
+        $variations = ProductVariation::all()->toArray();
+        return array_reverse($variations);
     }
 
     /**
@@ -41,10 +42,10 @@ class OptionController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Option  $option
+     * @param  \App\ProductVariation  $productVariation
      * @return \Illuminate\Http\Response
      */
-    public function show(Option $option)
+    public function show(ProductVariation $productVariation)
     {
         //
     }
@@ -52,10 +53,10 @@ class OptionController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Option  $option
+     * @param  \App\ProductVariation  $productVariation
      * @return \Illuminate\Http\Response
      */
-    public function edit(Option $option)
+    public function edit(ProductVariation $productVariation)
     {
         //
     }
@@ -64,10 +65,10 @@ class OptionController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Option  $option
+     * @param  \App\ProductVariation  $productVariation
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Option $option)
+    public function update(Request $request, ProductVariation $productVariation)
     {
         //
     }
@@ -75,10 +76,10 @@ class OptionController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Option  $option
+     * @param  \App\ProductVariation  $productVariation
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Option $option)
+    public function destroy(ProductVariation $productVariation)
     {
         //
     }
