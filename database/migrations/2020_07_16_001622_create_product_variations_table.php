@@ -18,6 +18,8 @@ class CreateProductVariationsTable extends Migration
             $table->Biginteger('products_id')->unsigned()->index();
             $table->Biginteger('product_variation_types_id')->unsigned()->index();
             $table->string('name');
+            $table->integer('price')->nullable();
+            $table->integer('quantity');
             $table->timestamps();
 
             

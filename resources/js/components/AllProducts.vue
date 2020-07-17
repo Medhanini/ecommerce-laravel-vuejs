@@ -26,6 +26,7 @@
       >
         mdi-delete
       </v-icon>
+      <ShowProduct :data="item" />
     </template>
     <template v-slot:no-data>
       <v-btn color="primary" @click="initialize">Reset</v-btn>
@@ -39,11 +40,13 @@
 <script>
 import addProducts from './AddProducts'
 import EditProducts from './EditProducts'
+import ShowProduct from './ShowProduct'
   export default {
     name:'AllProducts',
     components:{
       addProducts,
-      EditProducts
+      EditProducts,
+      ShowProduct
     },
     data: () => ({
       dialog: false,

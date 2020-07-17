@@ -17,7 +17,7 @@ class Products extends JsonResource
     {
         return  array_merge(parent::toArray($request),[
             'variation'=> VariationsResource::collection(
-                $this->variations->groupBy('type.name')
+                $this->variations
                 )
         ]);
     }

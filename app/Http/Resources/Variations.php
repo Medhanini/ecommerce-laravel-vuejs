@@ -20,6 +20,8 @@ class Variations extends JsonResource
         }
         return [
             'name' => $this->name,
+            'price' => $this->price,
+            'quantity' => $this->quantity,
         ];
         
     }

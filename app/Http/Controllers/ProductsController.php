@@ -34,13 +34,18 @@ class ProductsController extends Controller
             'quantity' => $request->input('quantity'),
         ]);
 
-        $var = $request->name;
+        $var_name = $request->name;
+        $var_prc = $request->prc;
+        $var_qty = $request->qty;
         $vartypes_id = $request->product_variation_types_id;
         $productvariation = [];    
         $products->save();
         // insert blog tags
-        foreach ($var as $v) {
-            array_push($productvariation, ['products_id'=>'1','product_variation_types_id' => $vartypes_id,'name' => $v]);
+        $length=count($var_name);
+        for ($i=0;$i<$length;$i++)
+        {
+            array_push($productvariation, ['products_id'=>$products->id,'product_variation_types_id' => $vartypes_id,'name' => $var_name[$i],'price' => $var_prc[$i],'quantity' => $var_qty[$i]]);
+        
         }    
         ProductVariation::insert($productvariation);
         // topic post relatioship

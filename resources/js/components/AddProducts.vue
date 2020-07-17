@@ -77,6 +77,28 @@
     </v-col>
 </v-row>
                   </v-col>
+                  <v-col v-show="product.name" cols="12">
+                  <v-simple-table dark>
+                    <template v-slot:default>
+                      <thead>
+                        <tr>
+                          <th class="text-left">Variant</th>
+                          <th class="text-left">Price</th>
+                          <th class="text-left">Quantity</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr v-for="(item,index) in product.name" :key="index">
+                          <td>{{ item }} {{ index }} </td>
+                          <td ><v-text-field v-model="product.prc[index]" required label="Price"></v-text-field></td>
+                          <td><v-text-field v-model="product.qty[index]" required label="Quantity"></v-text-field></td>
+                        </tr>
+                      </tbody>
+                      {{ product.prc }}
+                      {{ product.qty }}
+                    </template>
+                  </v-simple-table>
+                  </v-col>
                 </v-row>
             <v-card-actions>
               <v-spacer></v-spacer>
@@ -107,7 +129,10 @@ export default {
     data(){
         return{
             dialog: false,
-            product:{},
+            product:{
+              prc:[],
+              qty:[],
+            },
             options:{}
         }
     },
