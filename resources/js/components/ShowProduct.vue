@@ -10,14 +10,71 @@
             mdi-eye
         </v-icon>
           </template>
-          <v-card>
-              <div v-for="(o,index) in data.variation.color" :key="index" >
-                  <div  >
-                      {{o.name}}
-                  </div>
-              </div>
-              {{data.variation}}
-          </v-card>
+  <v-card
+    class="mx-auto"
+    color="#26c6da"
+    dark
+  >
+    <v-card-title>
+      <v-icon
+        large
+        left
+      >
+        mdi-information-variant
+      </v-icon>
+      <span class="title font-weight-light"> {{ data.title }} </span>
+    </v-card-title>
+
+    <v-card-text class="headline font-weight-bold">
+  <v-card
+    class="mx-auto"
+  >
+    <v-list>
+      <v-list-item>
+        <v-list-item-content>
+          <v-list-item-title > Price : </v-list-item-title>
+        </v-list-item-content>
+
+        <v-list-item-avatar>
+          {{ data.price }}
+        </v-list-item-avatar>
+      </v-list-item>
+      <v-list-item>
+        <v-list-item-content>
+          <v-list-item-title > Quantity : </v-list-item-title>
+        </v-list-item-content>
+
+        <v-list-item-avatar>
+          {{ data.quantity }}
+        </v-list-item-avatar>
+      </v-list-item>
+    </v-list>
+  </v-card>
+    </v-card-text>
+
+    <v-card-actions>
+      <v-simple-table dense>
+        <template v-slot:default>
+          <thead>
+            <tr>
+              <th class="text-left">Name</th>
+              <th class="text-left">Price</th>
+              <th class="text-left">Quantity</th>
+              <th class="text-left">Type</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="(value, index) in data.variation" :key="index">
+              <td>{{ value.name }}</td>
+              <td>{{ value.price }}</td>
+              <td>{{ value.quantity }}</td>
+              <td>{{ value.type.name }}</td>
+            </tr>
+          </tbody>
+        </template>
+      </v-simple-table>
+    </v-card-actions>
+  </v-card>
         </v-dialog>
 </template>
 <script>

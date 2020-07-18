@@ -89,13 +89,11 @@
                       </thead>
                       <tbody>
                         <tr v-for="(item,index) in product.name" :key="index">
-                          <td>{{ item }} {{ index }} </td>
+                          <td>{{ item }} </td>
                           <td ><v-text-field v-model="product.prc[index]" required label="Price"></v-text-field></td>
                           <td><v-text-field v-model="product.qty[index]" required label="Quantity"></v-text-field></td>
                         </tr>
                       </tbody>
-                      {{ product.prc }}
-                      {{ product.qty }}
                     </template>
                   </v-simple-table>
                   </v-col>
@@ -110,7 +108,6 @@
               >Save</v-btn>
             </v-card-actions>
             </v-form>
-            {{ product }}
               </v-container>
             </v-card-text>
           </v-card>
@@ -186,7 +183,6 @@ export default {
                     .post('http://localhost:8000/api/products/add', this.product)
                     .then(response => (
                         this.$router.push({name: 'products'})
-                        // console.log(response.data)
                     ))
                     .catch(error => console.log(error))
                     .finally(() => this.loading = false)

@@ -4,7 +4,6 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 use App\Http\Resources\Variations as VariationsResource;
-use App\Http\Resources\Products as ProductsResource;
 class Products extends JsonResource
 {
     /**
