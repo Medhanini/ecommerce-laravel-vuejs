@@ -108,7 +108,7 @@
       dialog: false,
       drawer: false,
       items: [
-        { icon: 'mdi-desktop-mac-dashboard', text: 'Dashboard', to:"/admin"},
+        { icon: 'mdi-desktop-mac-dashboard', text: 'Dashboard', to:"/"},
         { icon: 'mdi-tshirt-v-outline', text: 'Products' ,to:"/products"},
       ],
     }),

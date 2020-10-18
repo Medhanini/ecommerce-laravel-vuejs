@@ -2231,8 +2231,7 @@ __webpack_require__.r(__webpack_exports__);
       this.axios.post('http://localhost:8000/api/products/add', this.product).then(function (response) {
         return _this4.$router.push({
           name: 'products'
-        }) // console.log(response.data)
-        ;
+        });
       })["catch"](function (error) {
         return console.log(error);
       })["finally"](function () {
@@ -2772,6 +2771,10 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
 //
 //
 //
@@ -40375,9 +40378,24 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("h1", [_vm._v("Dashbord Hello world !!")])
+  return _vm._m(0)
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _c("h1", [_vm._v("Hello world !!")]),
+      _vm._v(" "),
+      _c("p", [
+        _vm._v(
+          " Simple example using Laravel 7.0 & Vuejs & Vuetify for E-commerce variations and options"
+        )
+      ])
+    ])
+  }
+]
 render._withStripped = true
 
 
