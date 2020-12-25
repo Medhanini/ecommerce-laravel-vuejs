@@ -114,12 +114,8 @@
         </v-dialog>
 </template>
 <script>
-import Options from './Options'
 export default {
     name:'AddProduct',
-    components:{
-      Options
-    },
     props: {
     method: { type: Function },
   },
